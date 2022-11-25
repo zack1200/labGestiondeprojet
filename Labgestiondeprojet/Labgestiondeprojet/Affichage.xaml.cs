@@ -29,6 +29,7 @@ namespace Labgestiondeprojet
         public Affichage()
         {
             this.InitializeComponent();
+            GestionBD.getInstance().GetProjet();
         }
     }
 }

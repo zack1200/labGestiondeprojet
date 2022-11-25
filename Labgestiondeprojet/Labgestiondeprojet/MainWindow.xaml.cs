@@ -46,6 +46,12 @@ namespace Labgestiondeprojet
                 case "iAjtP":
                     mainFrame.Navigate(typeof(AjouterP));
                     break;
+                case "iAff":
+                    mainFrame.Navigate(typeof(Affichage));
+                    break;
+                case "iRecherche":
+                    mainFrame.Navigate(typeof(RechercheE));
+                    break;
 
                 default:
                     break;
