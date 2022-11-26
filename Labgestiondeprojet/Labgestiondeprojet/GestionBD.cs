@@ -44,8 +44,8 @@ namespace Labgestiondeprojet
                 Projet c = new Projet()
                 {
                     Numero = r.GetInt32("numero"),
-                    Date = r.GetDouble("date"),
-                    Budget = r.GetInt32("numero"),
+                    Date = r.GetString("debut"),
+                    Budget = r.GetInt32("budget"),
                     Description = r.GetString("description"),
                     Employe = r.GetString("employe"),
 
@@ -62,7 +62,7 @@ namespace Labgestiondeprojet
         public void AjouterProjet(Projet c)
         {
             int numero =c.Numero;
-            double date =c.Date;
+            string date =c.Date;
             int budget =c.Budget;
             string description =c.Description;
             string employe =c.Employe;
@@ -72,10 +72,10 @@ namespace Labgestiondeprojet
             {
                 MySqlCommand commande = new MySqlCommand();
                 commande.Connection = con;
-                commande.CommandText = "insert into projet values(@numero, @date, @budget, @description, @employe) ";
+                commande.CommandText = "insert into projet values(@numero, @debut, @budget, @description, @employe) ";
 
                 commande.Parameters.AddWithValue("@numero", numero);
-                commande.Parameters.AddWithValue("@date", date);
+                commande.Parameters.AddWithValue("@debut", date);
                 commande.Parameters.AddWithValue("@budget", budget);
                 commande.Parameters.AddWithValue("@description", description);
                 commande.Parameters.AddWithValue("@employe", employe);

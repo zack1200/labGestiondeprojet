@@ -12,7 +12,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <ScrollViewer>
     <Grid>
-       
+            <ListView x:Name="lvListe"></ListView>
 
     </Grid>
     </ScrollViewer>
