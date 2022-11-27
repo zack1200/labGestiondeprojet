@@ -24,7 +24,7 @@
             <ComboBox x:Name="cbEmp"  
                           Header="Employe"
                           HorizontalAlignment="Stretch">
-                <x:String>Martin Dubuc</x:String>
+                <x:String>Martin Dubugec</x:String>
                 <x:String>Normand Massé</x:String>
                 <x:String>Raymond Piché</x:String>
             </ComboBox>
