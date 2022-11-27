@@ -89,6 +89,74 @@ namespace Labgestiondeprojet
                     con.Close();
             }
         }
+        public ObservableCollection<Employe> rechercher_employeN(string name)
+        {
+            try
+            {
+                liste.Clear();
+                MySqlCommand commande = new MySqlCommand();
+                commande.Connection = con;
+                commande.CommandText = "Select * from employe where nom = '" + name + "'";
+                con.Open();
+                MySqlDataReader r = commande.ExecuteReader();
+                while (r.Read())
+                {
+                    liste.Add(new Employe()
+                    {
+                        Matricule = r.GetString(0),
+                        Nom = r.GetString(1),
+                        Prenom = r.GetString(2)
+
+                    });
+                }
+                r.Close();
+                con.Close();
+                return liste;
+            }
+            catch (MySqlException ex)
+            {
+                if (con.State == System.Data.ConnectionState.Open)
+                {
+                    con.Close();
+                }
+                return null;
+            }
+
+        }
+        public ObservableCollection<Employe> rechercher_employeP(string prenom)
+        {
+            try
+            {
+                liste.Clear();
+                MySqlCommand commande = new MySqlCommand();
+                commande.Connection = con;
+                commande.CommandText = "Select * from employe where prenom = '" + prenom + "'";
+                con.Open();
+                MySqlDataReader r = commande.ExecuteReader();
+                while (r.Read())
+                {
+                    liste.Add(new Employe()
+                    {
+                        Matricule = r.GetString(0),
+                        Nom = r.GetString(1),
+                        Prenom = r.GetString(2)
+
+                    });
+                }
+                r.Close();
+                con.Close();
+                return liste;
+            }
+            catch (MySqlException ex)
+            {
+                if (con.State == System.Data.ConnectionState.Open)
+                {
+                    con.Close();
+                }
+                return null;
+            }
+
+        }
 
 
     }
