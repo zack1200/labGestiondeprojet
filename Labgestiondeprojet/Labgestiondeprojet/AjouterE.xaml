@@ -1,0 +1,27 @@
+<!-- Copyright (c) Microsoft Corporation. All rights reserved. -->
+<!-- Licensed under the MIT License. See LICENSE in the project root for license information. -->
+
+<Page
+    x:Class="Labgestiondeprojet.AjouterE"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Labgestiondeprojet"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <StackPanel Height="900" >
+        <StackPanel Margin="50">
+        <TextBox x:Name="tbxMat" Header="Matricule"/>
+        <TextBlock x:Name="tblErreurMat" Text="Veuillez entrer un matricule valide ." Foreground="Red"  Visibility="Collapsed"/>
+        <TextBox x:Name="tbxNom" Header="Nom"/>
+        <TextBlock x:Name="tblErreurNom" Text="Veuillez entrer un nom valide. " Foreground="Red"  Visibility="Collapsed"/>
+        <TextBox x:Name="tbxPrenom" Header="Prenom"/>
+        <TextBlock x:Name="tblErreurPrenom" Text="Veuillez entrer un prenom valide." Foreground="Red"  Visibility="Collapsed"/>
+        </StackPanel>
+        <Button Name="btAjt"  Content="Ajouter"  Click="btAjt_Click"  HorizontalAlignment="Center" Foreground="White" Background="Blue"/>
+        <TextBlock x:Name="tblEmp" Text="L'employe a ete ajouter ." Foreground="Green"  Visibility="Collapsed"  HorizontalTextAlignment="Center"/>
+
+    </StackPanel>
+</Page>
