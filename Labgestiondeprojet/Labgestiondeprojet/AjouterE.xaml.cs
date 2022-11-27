@@ -33,7 +33,41 @@ namespace Labgestiondeprojet
 
         private void btAjt_Click(object sender, RoutedEventArgs e)
         {
+            int valide = 0;
+            bool valide1 = true;
 
+            //reset();
+
+            if (tbxMat.Text.Trim() == "")
+            {
+                tblErreurMat.Visibility = Visibility.Visible;
+                valide += 1;
+            }
+
+            if (tbxNom.Text.Trim() == "")
+            {
+                tblErreurNom.Visibility = Visibility.Visible;
+                valide += 1;
+            }
+
+            if (tbxPrenom.Text.Trim() == "")
+            {
+                tblErreurPrenom.Visibility = Visibility.Visible;
+                valide += 1;
+            }
+
+            if (valide == 0 && valide1 == true)
+            {
+                Employe emp = new Employe()
+                {
+                    Matricule = tbxMat.Text,
+                    Nom = tbxNom.Text,
+                    Prenom = tbxPrenom.Text,
+
+                };
+                GestionBDE.getInstance().AjouterEmployer(emp);
+                tblEmp.Visibility = Visibility.Visible;
+            } 
         }
     }
 }

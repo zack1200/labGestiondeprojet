@@ -21,6 +21,7 @@
         <TextBlock x:Name="tblErreurPrenom" Text="Veuillez entrer un prenom valide." Foreground="Red"  Visibility="Collapsed"/>
         </StackPanel>
         <Button Name="btAjt"  Content="Ajouter"  Click="btAjt_Click"  HorizontalAlignment="Center" Foreground="White" Background="Blue"/>
+        <TextBlock x:Name="tblEmp" Text="L'employe a ete ajouter ." Foreground="Green"  Visibility="Collapsed"  HorizontalTextAlignment="Center"/>
 
     </StackPanel>
 </Page>

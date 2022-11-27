@@ -22,7 +22,7 @@ namespace Labgestiondeprojet
 
         public override string ToString()
         {
-            return Date + Numero;
+            return "Numero de projet :" + Numero + "\n" + "Description du projet : " + Description + "\n" + "Date du projet : " + Date + "\n" + "EMploye chargee du projet : " + Employe + "";
         }
     }
 }
