@@ -21,13 +21,12 @@
             <TextBlock x:Name="tblErreurBud" Text="Veuillez entrer un budget valide(Minimum 10 000$ Maximum 100 000$)." Foreground="Red"  Visibility="Collapsed"/>
             <TextBox x:Name="tbxDesc" Header="Description"/>
             <TextBlock x:Name="tblErreurDesc" Text="Veuillez entrer une description valide ." Foreground="Red"  Visibility="Collapsed"/>
-            <ComboBox x:Name="cbEmp"  
-                          Header="Employe"
-                          HorizontalAlignment="Stretch">
-                <x:String>Martin Dubugec</x:String>
+            <ComboBox x:Name="cbEmp"   Header="Employe"  HorizontalAlignment="Stretch">
+                <x:String>{x:Bind Nom}</x:String>
                 <x:String>Normand Massé</x:String>
                 <x:String>Raymond Piché</x:String>
             </ComboBox>
+            
             <TextBlock x:Name="tblErreurNom" Text="Veuillez entrer un nom valide. " Foreground="Red"  Visibility="Collapsed"/>
             
         </StackPanel>

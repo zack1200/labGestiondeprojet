@@ -56,6 +56,7 @@ namespace Labgestiondeprojet
             con.Close();
             return liste;
         }
+       
 
         public void AjouterEmployer(Employe e)
         {
@@ -88,5 +89,7 @@ namespace Labgestiondeprojet
                     con.Close();
             }
         }
+
+
     }
 }

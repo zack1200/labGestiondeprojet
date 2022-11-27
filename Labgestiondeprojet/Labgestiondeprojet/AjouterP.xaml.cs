@@ -29,6 +29,7 @@ namespace Labgestiondeprojet
         public AjouterP()
         {
             this.InitializeComponent();
+            
         }
 
         private void btAjt_Click(object sender, RoutedEventArgs e)
