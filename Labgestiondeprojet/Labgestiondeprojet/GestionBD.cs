@@ -43,9 +43,9 @@ namespace Labgestiondeprojet
             {
                 Projet c = new Projet()
                 {
-                    Numero = r.GetInt32("numero"),
+                    Numero = r.GetString("numero"),
                     Date = r.GetString("debut"),
-                    Budget = r.GetInt32("budget"),
+                    Budget = r.GetString("budget"),
                     Description = r.GetString("description"),
                     Employe = r.GetString("employe"),
 
@@ -61,9 +61,9 @@ namespace Labgestiondeprojet
 
         public void AjouterProjet(Projet c)
         {
-            int numero =c.Numero;
+            string numero =c.Numero;
             string date =c.Date;
-            int budget =c.Budget;
+            string budget =c.Budget;
             string description =c.Description;
             string employe =c.Employe;
 

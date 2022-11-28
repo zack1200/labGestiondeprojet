@@ -29,11 +29,82 @@ namespace Labgestiondeprojet
         public AjouterP()
         {
             this.InitializeComponent();
-            
+            listEmploye.ItemsSource = GestionBDE.getInstance().GetEmployes();
+
         }
 
         private void btAjt_Click(object sender, RoutedEventArgs e)
         {
+            int valide = 0;
+            bool valide1 = true;
+
+            reset();
+
+            /*
+             * vous pouvez choisir l'une ou l'autre façon de gérer
+             * la vérification des champs
+             * Commentez une façon et décommentez l'autre 
+             */
+
+
+            /*première façon de gérer la vérification*/
+            if (tbxNum.Text.Trim() == "")
+            {
+                tblErreurNum.Visibility = Visibility.Visible;
+                valide += 1;
+            }
+
+            if (tbxDat.Text.Trim() == "")
+            {
+                tblErreurDat.Visibility = Visibility.Visible;
+                valide += 1;
+            }
+
+            if (tbxBud.Text.Trim() == "" )
+                
+            {
+                tblErreurBud.Visibility = Visibility.Visible;
+                valide += 1;
+            }
+
+            if (tbxDesc.Text.Trim() == "")
+            {
+                tblErreurDesc.Visibility = Visibility.Visible;
+                valide += 1;
+            }
+            if (listEmploye.SelectedIndex == -1)
+            {
+                tblErreurNom.Visibility = Visibility.Visible;
+                valide += 1;
+            }
+            if (valide == 0 && valide1 == true)
+            {
+                Projet po = new Projet()
+                {
+                    Numero= tbxNum.Text,
+                    Date = tbxDat.Text,
+                    Budget = tbxBud.Text,
+                    Description = tbxDesc.Text,
+                    Employe = listEmploye.SelectedItem.ToString(),
+                    
+
+                };
+                GestionBD.getInstance().AjouterProjet(po);
+                tblsucces.Visibility = Visibility.Visible;
+
+
+            }
+
+
+        }
+        private void reset()
+        {
+            tblErreurNum.Visibility = Visibility.Collapsed;
+            tblErreurDat.Visibility = Visibility.Collapsed;
+            tblErreurBud.Visibility = Visibility.Collapsed;
+            tblErreurDesc.Visibility = Visibility.Collapsed;
+            tblErreurNom.Visibility = Visibility.Collapsed;
+            
 
         }
     }
