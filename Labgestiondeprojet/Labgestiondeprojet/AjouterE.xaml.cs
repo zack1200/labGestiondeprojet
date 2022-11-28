@@ -36,7 +36,7 @@ namespace Labgestiondeprojet
             int valide = 0;
             bool valide1 = true;
 
-            //reset();
+            reset();
 
             if (tbxMat.Text.Trim() == "")
             {
@@ -68,6 +68,14 @@ namespace Labgestiondeprojet
                 GestionBDE.getInstance().AjouterEmployer(emp);
                 tblEmp.Visibility = Visibility.Visible;
             } 
+        }
+        private void reset()
+        {
+            tblErreurMat.Visibility = Visibility.Collapsed;
+            tblErreurNom.Visibility = Visibility.Collapsed;
+            tblErreurPrenom.Visibility = Visibility.Collapsed;
+           
+
         }
     }
 }

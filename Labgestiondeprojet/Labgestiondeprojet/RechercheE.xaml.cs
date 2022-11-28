@@ -29,6 +29,18 @@ namespace Labgestiondeprojet
         public RechercheE()
         {
             this.InitializeComponent();
+            listEmploye.ItemsSource = GestionBDE.getInstance().GetEmployes();
+
+        }
+
+        private void btRecherche_Click(object sender, RoutedEventArgs e)
+        {
+            Affiche.ItemsSource = GestionBDE.getInstance().rechercher_employeN(tbxNom.Text);
+        }
+
+        private void btRechercheP_Click(object sender, RoutedEventArgs e)
+        {
+            Affiche.ItemsSource = GestionBDE.getInstance().rechercher_employeP(tbxPrenom.Text);
         }
     }
 }
