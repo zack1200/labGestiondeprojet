@@ -96,7 +96,7 @@ namespace Labgestiondeprojet
                 liste.Clear();
                 MySqlCommand commande = new MySqlCommand();
                 commande.Connection = con;
-                commande.CommandText = "Select * from employe where nom = '" + name + "'";
+                commande.CommandText = "Select * from employe where nom = '" + name + "' or " ;
                 con.Open();
                 MySqlDataReader r = commande.ExecuteReader();
                 while (r.Read())

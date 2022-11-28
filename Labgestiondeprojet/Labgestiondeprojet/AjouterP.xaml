@@ -15,7 +15,7 @@
         <StackPanel Margin="50">
             <TextBox x:Name="tbxNum" Header="Numero de projet"/>
             <TextBlock x:Name="tblErreurNum" Text="Veuillez entrer un numero valide ." Foreground="Red"  Visibility="Collapsed"/>
-            <TextBox x:Name="tbxDat" Header="Date debut"/>
+            <DatePicker Header="Pick a date" x:Name="tbxDat"/>
             <TextBlock x:Name="tblErreurDat" Text="Veuillez entrer une date valide. " Foreground="Red"  Visibility="Collapsed"/>
             <TextBox x:Name="tbxBud" Header="Budget"/>
             <TextBlock x:Name="tblErreurBud" Text="Veuillez entrer un budget valide(Minimum 10 000$ Maximum 100 000$)." Foreground="Red"  Visibility="Collapsed"/>
@@ -25,7 +25,11 @@
             <ComboBox x:Name="listEmploye" Header="Employe charge de projet" HorizontalAlignment="Stretch">
                 <ComboBox.ItemTemplate>
                     <DataTemplate x:DataType="local:Employe" >
-                        <TextBlock Text="{x:Bind Nom}" Margin="5,5,5,10" FontWeight="Normal" FontSize="20" />
+                        <StackPanel >
+                            <TextBlock Text="{x:Bind Nom}" Margin="5,5,5,10" FontWeight="Normal" FontSize="20" />
+                            <TextBlock Text="{x:Bind Prenom}" Margin="5,5,5,10" FontWeight="Normal" FontSize="20" />
+                        </StackPanel>
+                        
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>

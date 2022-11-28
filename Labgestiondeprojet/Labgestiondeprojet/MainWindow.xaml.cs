@@ -29,7 +29,7 @@ namespace Labgestiondeprojet
         public MainWindow()
         {
             this.InitializeComponent();
-            mainFrame.Navigate(typeof(AjouterE));
+            mainFrame.Navigate(typeof(Affichage));
         }
 
        

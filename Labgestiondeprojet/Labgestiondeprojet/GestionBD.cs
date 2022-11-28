@@ -34,7 +34,7 @@ namespace Labgestiondeprojet
 
             MySqlCommand commande = new MySqlCommand();
             commande.Connection = con;
-            commande.CommandText = "Select * from projet";
+            commande.CommandText = "select numero,debut,budget,description,nom,prenom from projet inner join employe where projet.employe=employe.matricule";
 
             con.Open();
             MySqlDataReader r = commande.ExecuteReader();
@@ -46,8 +46,9 @@ namespace Labgestiondeprojet
                     Numero = r.GetString("numero"),
                     Date = r.GetString("debut"),
                     Budget = r.GetString("budget"),
-                    Description = r.GetString("description"),
-                    Employe = r.GetString("employe"),
+                    Description = r.GetString("description"),                    
+                    Nom=r.GetString("nom"),
+                    Prenom=r.GetString("prenom")
 
                 };
 

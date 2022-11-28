@@ -54,7 +54,7 @@ namespace Labgestiondeprojet
                 valide += 1;
             }
 
-            if (tbxDat.Text.Trim() == "")
+            if (tbxDat.SelectedDate == null)
             {
                 tblErreurDat.Visibility = Visibility.Visible;
                 valide += 1;
@@ -79,13 +79,16 @@ namespace Labgestiondeprojet
             }
             if (valide == 0 && valide1 == true)
             {
+                Employe emp = listEmploye.SelectedItem as Employe;
+
+
                 Projet po = new Projet()
                 {
-                    Numero= tbxNum.Text,
-                    Date = tbxDat.Text,
-                    Budget = tbxBud.Text,
+                    Numero = tbxNum.Text,
+                    Date = tbxDat.SelectedDate.Value.ToString("yyyy-MM-dd"),
+                    Budget = tbxBud.Text,//Convert.ToInt32
                     Description = tbxDesc.Text,
-                    Employe = listEmploye.SelectedItem.ToString(),
+                    Employe =  emp.Matricule,
                     
 
                 };
