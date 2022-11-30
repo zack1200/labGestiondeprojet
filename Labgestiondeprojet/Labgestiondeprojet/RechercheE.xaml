@@ -14,14 +14,14 @@
     <ScrollViewer>
         
 
-        <StackPanel Background="CadetBlue" Padding="30" Width="auto">
+        <StackPanel Background="Azure" Padding="30" Width="auto">
             <StackPanel HorizontalAlignment="Center">
                 <StackPanel>
                 <TextBox x:Name="tbxNom" Header="Entrer un nom "/>
-                <Button Name="btRecherche"  Content="Rehcerhce par nom"  Click="btRecherche_Click"  HorizontalAlignment="Center" Foreground="White" Background="CadetBlue"/>
+                <Button Name="btRecherche"  Content="Entrer un nom ou un prenom"  Click="btRecherche_Click"  HorizontalAlignment="Center" Foreground="White" Background="CadetBlue"/>
+                    <TextBlock x:Name="tblErreurRe"  Text="Veuillez entrer un nom ou un prenom valide " Foreground="Red"  Visibility="Collapsed"/>
                 </StackPanel>
-                <TextBox x:Name="tbxPrenom" Header="Entrer un prenom "/>
-                <Button Name="btRechercheP"  Content="Rehcerhce par prenom"  Click="btRechercheP_Click"  HorizontalAlignment="Center" Foreground="White" Background="CadetBlue"/>
+                
                 <ListView x:Name="Affiche"/>
             </StackPanel>
             <ListView x:Name="listEmploye"  >

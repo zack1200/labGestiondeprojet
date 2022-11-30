@@ -94,5 +94,42 @@ namespace Labgestiondeprojet
                     con.Close();
             }
         }
+        public ObservableCollection<Projet> rechercher_Projet(string date)
+        {
+            try
+            {
+                liste.Clear();
+                MySqlCommand commande = new MySqlCommand();
+                commande.Connection = con;
+                commande.CommandText = "select numero,debut,budget,description,nom,prenom from projet inner join employe where debut = '" + date + "' and projet.employe=employe.matricule ";
+                con.Open();
+                MySqlDataReader r = commande.ExecuteReader();
+                while (r.Read())
+                {
+                    liste.Add(new Projet()
+                    {
+                        Numero = r.GetString("numero"),
+                        Date = r.GetString("debut"),
+                        Budget = r.GetString("budget"),
+                        Description = r.GetString("description"),
+                        Nom = r.GetString("nom"),
+                        Prenom = r.GetString("prenom")
+
+                    });
+                }
+                r.Close();
+                con.Close();
+                return liste;
+            }
+            catch (MySqlException ex)
+            {
+                if (con.State == System.Data.ConnectionState.Open)
+                {
+                    con.Close();
+                }
+                return null;
+            }
+
+        }
     }
 }

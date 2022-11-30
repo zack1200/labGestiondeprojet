@@ -38,6 +38,9 @@ namespace Labgestiondeprojet
             int valide = 0;
             bool valide1 = true;
 
+            int bud = 0;
+            int num = 0;
+
             reset();
 
             /*
@@ -48,11 +51,13 @@ namespace Labgestiondeprojet
 
 
             /*première façon de gérer la vérification*/
-            if (tbxNum.Text.Trim() == "")
-            {
-                tblErreurNum.Visibility = Visibility.Visible;
-                valide += 1;
-            }
+            if (!int.TryParse(tbxNum.Text, out num))
+                    {
+                        
+                        tblErreurNum.Visibility = Visibility.Visible;
+                        valide += 1;
+                      }
+           
 
             if (tbxDat.SelectedDate == null)
             {
@@ -60,8 +65,16 @@ namespace Labgestiondeprojet
                 valide += 1;
             }
 
-            if (tbxBud.Text.Trim() == "" )
-                
+           
+            if (int.TryParse(tbxBud.Text, out bud))
+            {
+                if (bud < 10000 || bud > 100000)
+                {
+                    valide += 1;
+                    tblErreurBudA.Visibility = Visibility.Visible;
+                }
+            }
+            else
             {
                 tblErreurBud.Visibility = Visibility.Visible;
                 valide += 1;
@@ -105,6 +118,7 @@ namespace Labgestiondeprojet
             tblErreurNum.Visibility = Visibility.Collapsed;
             tblErreurDat.Visibility = Visibility.Collapsed;
             tblErreurBud.Visibility = Visibility.Collapsed;
+            tblErreurBudA.Visibility = Visibility.Collapsed;
             tblErreurDesc.Visibility = Visibility.Collapsed;
             tblErreurNom.Visibility = Visibility.Collapsed;
             

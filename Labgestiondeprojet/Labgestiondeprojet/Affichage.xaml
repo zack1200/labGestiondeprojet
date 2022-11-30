@@ -11,17 +11,35 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <ScrollViewer>
-    <Grid>
+        <StackPanel>
+        <StackPanel>
+            <DatePicker Header="Choisir une date " x:Name="tbxDat"/>
+            <TextBlock x:Name="tblErreurRe"  Text="veuillez choisir une date " Foreground="Red"  Visibility="Collapsed"/>
+            <Button x:Name="RechercheP" Content="Rechercher"  Click="RechercheP_Click"/>
+           
+        </StackPanel>
+
+        <StackPanel>
+            
+
+            <ListView x:Name="Affiche"/>
+
+
             <ListView x:Name="lvListe"  Margin="20"  Background="Azure">
+                
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="local:Projet">
+                        
                         <StackPanel Margin="12,0,0,0" Grid.Column="1" HorizontalAlignment="Stretch" >
+                            
                             <TextBlock Text="Numero de projet :"  Margin="5,5,5,10"  FontSize="20"/>
                             <TextBlock Text="{x:Bind Numero}" x:Name="date" Margin="5,5,5,10"  FontSize="20"/>
                             <TextBlock Text="Description du projet :"  Margin="5,5,5,10"  FontSize="20"/>
                             <TextBlock Text="{x:Bind Description}" x:Name="nomC" Margin="5,5,5,10" FontSize="20"/>
                             <TextBlock Text="Date du projet :"  Margin="5,5,5,10"  FontSize="20"/>
                             <TextBlock Text="{x:Bind Date}" x:Name="adresse" Margin="5,5,5,10" FontSize="20"/>
+                            <TextBlock Text="Budget :"  Margin="5,5,5,10"  FontSize="20"/>
+                            <TextBlock Text="{x:Bind Budget}" x:Name="budget" Margin="5,5,5,10" FontSize="20"/>
                             <TextBlock Text="L'employe charge de projet :"  Margin="5,5,5,10"  FontSize="20"/>
                             <TextBlock Text="{x:Bind Nom}" x:Name="nom" Margin="5,5,5,10" FontSize="20"/>
                             <TextBlock Text="{x:Bind Prenom}" x:Name="prenom" Margin="5,5,5,10" FontSize="20"/>
@@ -31,6 +49,7 @@
                 </ListView.ItemTemplate>
             </ListView>
 
-        </Grid>
+        </StackPanel>
+        </StackPanel>
     </ScrollViewer>
 </Page>

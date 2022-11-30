@@ -31,5 +31,26 @@ namespace Labgestiondeprojet
             this.InitializeComponent();
             lvListe.ItemsSource = GestionBD.getInstance().GetProjet(); 
         }
+
+        private void RechercheP_Click(object sender, RoutedEventArgs e)
+        {
+            int valide = 0;
+            reset();
+            if (tbxDat.SelectedDate == null)
+            {
+                tblErreurRe.Visibility = Visibility.Visible;
+                valide += 1;
+            }
+            if (valide == 0 )
+            {
+                lvListe.ItemsSource = GestionBD.getInstance().rechercher_Projet(tbxDat.SelectedDate.Value.ToString("yyyy-MM-dd"));
+            }
+        }
+        private void reset()
+        {
+            tblErreurRe.Visibility = Visibility.Collapsed;
+            
+
+        }
     }
 }

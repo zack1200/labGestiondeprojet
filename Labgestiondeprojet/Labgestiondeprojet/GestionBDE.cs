@@ -11,13 +11,13 @@ namespace Labgestiondeprojet
     internal class GestionBDE
     {
         MySqlConnection con;
-        ObservableCollection<Employe> liste;
+        ObservableCollection<Employe> liste2;
         static GestionBDE gestionBDE = null;
         public GestionBDE()
         {
             //ne pas oublier de mettre vos informtions de connexion
             con = new MySqlConnection("Server=cours.cegep3r.info;Database=2023268-zakaria-el-bahodi;Uid=2023268;Pwd=2023268;"); ;
-            liste = new ObservableCollection<Employe>();
+            liste2 = new ObservableCollection<Employe>();
         }
         public static GestionBDE getInstance()
         {
@@ -28,7 +28,7 @@ namespace Labgestiondeprojet
         }
         public ObservableCollection<Employe> GetEmployes()
         {
-            liste.Clear();
+            liste2.Clear();
 
             MySqlCommand commande = new MySqlCommand();
             commande.Connection = con;
@@ -49,12 +49,12 @@ namespace Labgestiondeprojet
 
                 };
 
-                liste.Add(e);
+                liste2.Add(e);
             }
 
             r.Close();
             con.Close();
-            return liste;
+            return liste2;
         }
        
 
@@ -93,15 +93,15 @@ namespace Labgestiondeprojet
         {
             try
             {
-                liste.Clear();
+                liste2.Clear();
                 MySqlCommand commande = new MySqlCommand();
                 commande.Connection = con;
-                commande.CommandText = "Select * from employe where nom = '" + name + "' or " ;
+                commande.CommandText = "Select * from employe where nom = '" + name + "' or prenom ='"+ name + "'" ;
                 con.Open();
                 MySqlDataReader r = commande.ExecuteReader();
                 while (r.Read())
                 {
-                    liste.Add(new Employe()
+                    liste2.Add(new Employe()
                     {
                         Matricule = r.GetString(0),
                         Nom = r.GetString(1),
@@ -111,7 +111,7 @@ namespace Labgestiondeprojet
                 }
                 r.Close();
                 con.Close();
-                return liste;
+                return liste2;
             }
             catch (MySqlException ex)
             {
@@ -123,40 +123,7 @@ namespace Labgestiondeprojet
             }
 
         }
-        public ObservableCollection<Employe> rechercher_employeP(string prenom)
-        {
-            try
-            {
-                liste.Clear();
-                MySqlCommand commande = new MySqlCommand();
-                commande.Connection = con;
-                commande.CommandText = "Select * from employe where prenom = '" + prenom + "'";
-                con.Open();
-                MySqlDataReader r = commande.ExecuteReader();
-                while (r.Read())
-                {
-                    liste.Add(new Employe()
-                    {
-                        Matricule = r.GetString(0),
-                        Nom = r.GetString(1),
-                        Prenom = r.GetString(2)
-
-                    });
-                }
-                r.Close();
-                con.Close();
-                return liste;
-            }
-            catch (MySqlException ex)
-            {
-                if (con.State == System.Data.ConnectionState.Open)
-                {
-                    con.Close();
-                }
-                return null;
-            }
-
-        }
+       
 
 
     }

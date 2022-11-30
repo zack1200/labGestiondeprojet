@@ -35,12 +35,24 @@ namespace Labgestiondeprojet
 
         private void btRecherche_Click(object sender, RoutedEventArgs e)
         {
-            Affiche.ItemsSource = GestionBDE.getInstance().rechercher_employeN(tbxNom.Text);
+            int valide = 0;
+            reset();
+            if (tbxNom.Text.Trim() == "")
+            {
+                tblErreurRe.Visibility = Visibility.Visible;
+                valide += 1;
+            }
+            if (valide == 0)
+            {
+                Affiche.ItemsSource = GestionBDE.getInstance().rechercher_employeN(tbxNom.Text);
+            }
+            
+        }
+        private void reset()
+        {
+            tblErreurRe.Visibility = Visibility.Collapsed;
         }
 
-        private void btRechercheP_Click(object sender, RoutedEventArgs e)
-        {
-            Affiche.ItemsSource = GestionBDE.getInstance().rechercher_employeP(tbxPrenom.Text);
-        }
+
     }
 }
